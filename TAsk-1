@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    float income, tax = 0;
+
+    printf("Enter your income: ");
+    scanf("%f", &income);
+
+    // Calculate tax
+    if (income <= 250000) {
+        tax = 0;
+    } else if (income <= 500000) {
+        tax = 0.05 * (income - 250000);
+    } else if (income <= 1000000) {
+        tax = 0.05 * (250000) + 0.20 * (income - 500000);
+    } else {
+        tax = 0.05 * (250000) + 0.20 * (500000) + 0.30 * (income - 1000000);
+    }
+
+    // Print tax
+    printf("Your net income tax is %.2f\n", tax);
+    printf("Tax breakdown:\n");
+    printf("  - 0% on first 2.5 lakhs\n");
+    printf("  - 5% on 2.5-5 lakhs\n");
+    printf("  - 20% on 5-10 lakhs\n");
+    printf("  - 30% on above 10 lakhs\n");
+
+    return 0;
+}
